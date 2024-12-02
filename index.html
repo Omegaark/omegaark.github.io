@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA Engineering Services</title>
+    <link rel="stylesheet" href="header_style.css">
+    <style>
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 90vh;
+            padding: 0 10%;
+            background: url('https://images.unsplash.com/photo-1545209575-704d1434f9cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c29sYXIlMjBwYW5lbCUyMHBuZ3xlbnwwfHwwfHx8MA%3D%3D') no-repeat center center/cover;
+                position: relative;
+            }
+    
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.75);
+                z-index: 1;
+            }
+    
+            .left-half, .right-half {
+                position: relative;
+                z-index: 2;
+        }
+
+        .left-half {
+            width: 50%;
+            color: white;
+        }
+
+        .left-half h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .left-half p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+
+        }
+
+        .left-half button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #00b0aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .left-half button:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        .right-half {
+            width: 50%;
+        }
+
+        .right-half img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                min-height: 90vh;
+                padding: 0 10%;
+            }
+
+            .left-half {
+                width: 100%;
+            }
+
+            .right-half {
+                width: 100%;
+            }
+            /* make the heading size small and center aligned on the screen */
+            .left-half h1 {
+                margin-top: 50px;
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .left-half p {
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .left-half button {
+                padding: 10px 20px;
+                font-size: 1rem;
+                background-color: #00b0aa;
+                color: white;
+                border: none;
+                cursor: pointer;
+                display: none;
+            }
+
+            .left-half button:hover {
+                background-color: #000000;
+                color: white;
+            }
+
+            .right-half img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+
+        }
+
+        /* Services Section */
+        .slider {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 10%;
+            margin-top: 50px;
+        }
+
+        .slides {
+            width: 30%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .slides h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .slides p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .slides button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #00b0aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .slides button:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        @media screen and (max-width: 768px) {
+            .slider {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                padding: 0 10%;
+            }
+
+            .slides {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* contact form */
+        .conta {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 10%;
+            margin-top: 50px;
+        }
+
+        .left-conta {
+            width: 30%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .left-conta p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #00b0aa;
+        }
+        .social-icons a:hover {
+            color: #000000;
+        }
+
+
+        .right-conta {
+            width: 30%;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .right-conta label{
+            text-align: left;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            align-self: left;
+            visibility: hidden;
+        }
+
+
+        .right-conta input, .right-conta textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #00b0aa;
+            border-radius: 5px;
+        }
+
+
+        .right-conta button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #00b0aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .right-conta button:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+
+
+        @media screen and (max-width: 768px) {
+            .conta {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                padding: 0 10%;
+            }
+
+            .left-conta {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .right-conta {
+                width: 100%;
+            }
+        }
+        
+
+
+
+
+    </style>
+    <!-- link font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h4>AA Engineering Services</h4>
+            </div>
+
+            <div class="MobileMenu">
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <div class="hero">
+        <div class="left-half">
+            <h1>
+                Welcome to AA Engineering Services
+            </h1>
+            <p>
+                We are providing the best services about Solar Panels. We are providing the best Solar Panels to utilize the solar energy.
+            </p>
+            <button>Learn More</button>
+        </div>
+        <div class="right-half">
+            <img src="download.png" alt="">
+
+        </div>
+
+    </div>
+
+    <h1 style="text-align: center; margin-top: 20px;" id="service">Our Services</h1>
+    <p style="text-align: center; margin-bottom: 20px;">We are Providing best services about Solar Panels</p>
+    <div class="slider">
+        <div class="slides">
+            <h1>Installation</h1>
+            <p>
+                We provide the best installation services for Solar Panels
+            </p>
+            <button>Learn More</button>
+        </div>
+        <div class="slides">
+            <h1>Setup</h1>
+            <p>
+                We are providing the best setup services for Solar Panels
+            </p>
+            <button>Learn More</button>
+        </div>
+        <div class="slides">
+            <h1>Reinstallation</h1>
+            <p>
+                We are providing the best reinstallation and rearrangement services for Solar Panels
+            </p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+
+    <h1 id="about" style="text-align: center; margin-top: 20px;">About Us</h1>
+    <p style="text-align: center; margin-bottom: 20px;">We are providing the best services in the town</p>
+    <div class="slider">
+        <div class="slides">
+            <h1>Our Mission</h1>
+            <p>
+                Our mission is to privide the best services to our customers. Our is to provide best solar panels to utilize the solar energy.
+            </p>
+            <button>Learn More</button>
+        </div>
+        <div class="slides">
+            <h1>Our Vision</h1>
+            <p>
+                Our vision is to install solar panels in every house to utilize the solar energy. We want to make our environment clean and green.
+            </p>
+            <button>Learn More</button>
+        </div>
+        <div class="slides">
+            <h1>Our Goal</h1>
+            <p>
+                Our goal is to provide the best services to our customers. We want to make our customers happy and satisfied.
+            </p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+    <h1 id="contact" style="text-align: center; margin-top: 20px;">Contact Us</h1>
+    <p style="text-align: center; margin-bottom: 20px;">Contact us for more information</p>
+    <div class="conta">
+        <div class="left-conta">
+            
+            <p>Phone: 123-456-7890</p>
+            <p>Email: info@aaengineering.com</p>
+            <p>Address: 123 Main Street, New York, NY 10001</p>
+
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            
+
+        </div>
+        <div class="right-conta">
+            <form action="#" method="post">
+                <label for="name">Enter your name:</label>
+                <input type="text" name="name" placeholder="Enter your name">
+                <label for="email">Enter your email:</label>
+                <input type="email" name="email" placeholder="Enter your email">
+                <label for="message">Enter your message:</label>
+                <textarea name="message" placeholder="Enter your message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+            
+    
+
+
+    <footer>
+        <p>© 2024 AA Engineering Services | All Rights Reserved</p>
+    </footer>
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                // Toggle Nav
+                nav.classList.toggle('nav-active');
+
+                // Animate Links
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+
+                // Burger Animation
+                burger.classList.toggle('toggle');
+            });
+        }
+
+        navSlide();
+
+        const hero = document.querySelector('.hero');
+        const leftHalf = document.querySelector('.left-half');
+        const rightHalf = document.querySelector('.right-half');
+
+        hero.addEventListener('mouseover', () => {
+            leftHalf.style.animation = `leftHalf 1s ease forwards`;
+            rightHalf.style.animation = `rightHalf 1s ease forwards`;
+        });
+        
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slides');
+
+        slider.addEventListener('mouseover', () => {
+            slides.forEach((slide, index) => {
+                slide.style.animation = `slideIn 1s ease forwards ${index / 7 + 0.3}s`;
+            });
+        });
+
+        form.addEventListener('submit', (e) => {
+            inputs.forEach((input) => {
+                if (input.value === '') {
+                    e.preventDefault();
+                    alert('Please fill all the fields');
+                }
+            });
+        });
+
+
+        const navLinks = document.querySelectorAll('.nav-links li a');
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = link.getAttribute('href').slice(1);
+                const element = document.getElementById(id);
+                element.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) {
+                header.style.position = 'fixed';
+                header.style.top = '0';
+                header.style.width = '100%';
+                header.style.zIndex = '1000';
+            } else {
+                header.style.position = 'relative';
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                const nav = document.querySelector('.nav-links');
+                const burger = document.querySelector('.burger');
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+            });
+        });
+
+        document.body.addEventListener('click', (e) => {
+            const nav = document.querySelector('.nav-links');
+            const burger = document.querySelector('.burger');
+            if (e.target !== nav && e.target !== burger) {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+            }
+        });
+
+        
+
+    </script>
+
+</body>
+
+</html>
