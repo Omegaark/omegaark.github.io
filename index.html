@@ -401,7 +401,7 @@
 
         </div>
         <div class="right-conta">
-            <form method="post">
+            <form action="#" method="post">
                 <label for="name">Enter your name:</label>
                 <input type="text" name="name" placeholder="Enter your name">
                 <label for="email">Enter your email:</label>
@@ -463,6 +463,9 @@
                 slide.style.animation = `slideIn 1s ease forwards ${index / 7 + 0.3}s`;
             });
         });
+
+        const form = document.querySelector('form');
+        const inputs = document.querySelectorAll('input, textarea');
 
         form.addEventListener('submit', (e) => {
             inputs.forEach((input) => {
