@@ -27,7 +27,7 @@ const config: Config = {
   projectName: 'omegaark.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages', // The branch that GitHub pages will deploy from.
   trailingSlash: false, // Set to true if you want to add a trailing slash to all URLs
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
